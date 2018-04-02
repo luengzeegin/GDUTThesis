@@ -104,10 +104,10 @@
 	\setmainfont{Times New Roman} % could be changed to "Times New Roman PS Std"
 	\setsansfont{Arial}
 	\setmonofont{Courier New} 
-	\setCJKmainfont{Adobe Song Std}
-	\setCJKsansfont{Adobe Heiti Std}
-	\setCJKfamilyfont{song}{Adobe Song Std}
-	\setCJKfamilyfont{hei}{Adobe Heiti Std}
+	\setCJKmainfont{SimSun}
+	\setCJKsansfont{SimHei}
+	\setCJKfamilyfont{song}{SimSun}
+	\setCJKfamilyfont{hei}{SimHei}
 }
 
 \ifisttf

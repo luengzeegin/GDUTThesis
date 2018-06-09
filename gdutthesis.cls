@@ -138,13 +138,14 @@
 \newcommand{\qihao}{\fontsize{5.5bp}{\baselineskip}\selectfont}
 \newcommand{\bahao}{\fontsize{5.0bp}{\baselineskip}\selectfont}
 
-\renewcommand{\baselinestretch}{1.25}  % 1.5行距，计算公式 “行距/1.2=倍数”
+\renewcommand{\baselinestretch}{1.16}  % 1.5行距，计算公式 “行距/1.2=倍数” 可以根据输出微调
 
 %------------------------------------------------------------------------
 %中文元素
 %------------------------------------------------------------------------
 \renewcommand\contentsname{目\hspace{5em}录}
 \newcommand\ackname{致\hspace{1em}谢}
+\newcommand\conclusionname{结\hspace{1em}论}
 \newcommand\equationname{公式}
 \renewcommand\bibname{参\hspace{1em}考\hspace{1em}文\hspace{1em}献}
 \renewcommand\figurename{图}
@@ -194,9 +195,19 @@
 	\if@openright\cleardoublepage\else\clearpage\fi
 	\pagestyle{backpage}
 }
-	
+
+\newenvironment{conclusion}{%
+	\thispagestyle{emptypage}
+	\chapter*{\conclusionname}%
+	\linespread{1.0}
+	\addcontentsline{toc}{chapter}{结论}%
+	\xiaosi%
+	\@afterheading
+}
+
 \newenvironment{ack}{%
 	\thispagestyle{emptypage}
+	\linespread{1.0}
 	\chapter*{\ackname}%
 	\addcontentsline{toc}{chapter}{致谢}%
 	\xiaosi%
@@ -243,35 +254,37 @@
 %------------------------------------------------------------------------
 %摘要
 %------------------------------------------------------------------------
-\newcommand\cabstractname{摘\hspace{2em}要}
-\newcommand\ckeywordsname{{\heiti \sihao \textbf{关键词}}}
-\newcommand\ckeywords[1]{\xiaosi \songti \ckeywordsname: #1}
+\newcommand\cabstractname{{摘\hspace{2em}要}}
+\newcommand\ckeywordsname{{\sihao \heiti \textbf{关键词：}}}
+\newcommand\ckeywords[1]{\xiaosi \songti \ckeywordsname #1}
 
-\newcommand\eabstractname{Abstract}
-\newcommand\ekeywordsname{\sihao \textbf{KEY WORDS}}
-\newcommand\ekeywords[1]{{\xiaosi \ekeywordsname: #1}}
+\newcommand\eabstractname{\sanhao \textbf{Abstract}}
+\newcommand\ekeywordsname{\sihao \textbf{Key words：}}
+\newcommand\ekeywords[1]{{\xiaosi \ekeywordsname #1}}
 
 \newenvironment{cabstract}{%
-	\titleformat*{\chapter}{\xiaosan \heiti \filcenter \bfseries}
+	\titleformat*{\chapter}{\sanhao \heiti \filcenter \bfseries}
 	\chapter*{\cabstractname}
+	\linespread{1.26}
 	\xiaosi
 	\@afterheading}
 {\par\vspace{1em}\par}
 
 \newenvironment{eabstract}{%
-	\titleformat*{\chapter}{\sihao \filcenter \bfseries}
+	\titleformat*{\chapter}{\sanhao \filcenter \bfseries}
 	\chapter*{\eabstractname}
+	\linespread{1.1}
 	\xiaosi
 	\@afterheading}
 {\par\vspace{1em}\par}
 
-\titlecontents{chapter}[0pt]{\vspace{6bp} \heiti \xiaosi}
+\titlecontents{chapter}[0pt]{\linespread{0.95} \vspace{6bp} \heiti \xiaosi}
 	{\thecontentslabel\quad}{}
 	{\titlerule*{.}\contentspage}
-\titlecontents{section}[1.5em]{\songti \xiaosi}
+\titlecontents{section}[1.5em]{\linespread{0.95}\songti \xiaosi}
 	{\thecontentslabel\quad}{}
 	{\titlerule*{.}\contentspage}
-\titlecontents{subsection}[3em]{\songti \xiaosi}
+\titlecontents{subsection}[3em]{\linespread{0.95}\songti \xiaosi}
 	{\thecontentslabel\quad}{}
 	{\titlerule*{.}\contentspage}
 
@@ -305,7 +318,7 @@
 \setlength{\topskip}{0pt}
 \setcounter{secnumdepth}{3} % 数字到subsection
 \titleformat{\chapter}{\filcenter \sanhao \heiti \bfseries }{\thechapter}{1.2em}{}
-\titleformat{\section}{\heiti \bfseries\xiaosi}{\thesection}{0.2em}{}
+\titleformat{\section}{\heiti \bfseries\xiaosi}{\thesection}{0.8em}{}
 \titleformat{\subsection}{\heiti \xiaosi}{\thesubsection}{1em}{}
 
 \titlespacing{\chapter}{0pt}{0pt}{1em}
@@ -319,8 +332,8 @@
 \setlength\belowdisplayshortskip{\abovedisplayshortskip}%
 }
 
-\setlength{\parindent}{2.5em}
-\setlength{\parskip}{0bp \@plus .5bp \@minus .5bp}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1ex}
 
 \renewenvironment{thebibliography}[1]{%
 	\thispagestyle{emptypage}

@@ -27,13 +27,23 @@
 
 \documentclass[otf,oneside,cn]{gdutthesis}
 \usepackage{mygdut}
-
+\usepackage[natbib]{gbt7714}
+\usepackage{fancyhdr}
 \begin{document}
 \graphicspath{{figures/}}
 
 \frontmatter
 \input{data/cover}
+
+\clearpage
+\phantom{s}
+\thispagestyle{empty}
+
 \iftrans{\input{data/abstract}}{}
+
+\clearpage
+\phantom{s}
+\thispagestyle{empty}
 
 % 生成目录
 \tableofcontents
@@ -43,8 +53,7 @@
 \iftrans{\input{data/chap01}\input{data/chap02}}{\input{data/translation}\input{data/original}}
 
 % 参考文献
-\bibliographystyle{GBT7714-2005-UTF8-N}
-\iftrans{\bibliography{ref/refs}}{}
+\iftrans{\bibliography{refs}}
 
 % 致谢
 \iftrans{\input{data/ack}}{}
